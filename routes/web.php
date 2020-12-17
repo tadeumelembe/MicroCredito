@@ -23,6 +23,18 @@ Route::get('/home', function () {
     return view('home.home');
 });
 
+Route::get('/clientes', function () {
+    return view('customers.index');
+});
+
+Route::get('/customer', function () {
+    return view('customers.show');
+});
+
+Route::get('/emprestimos', function () {
+    return view('loans.index');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

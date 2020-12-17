@@ -1,33 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-    <head>
-
-        <meta charset="utf-8" />
-        <title>Dashboard | Nazox - Responsive Bootstrap 4 Admin Dashboard</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesdesign" name="author" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}">
-
-        <!-- jquery.vectormap css -->
-        <link href="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
-
-        <!-- DataTables -->
-        <link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-
-        <!-- Responsive datatable examples -->
-        <link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-
-        <!-- Bootstrap Css -->
-        <link href="{{ asset('assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="{{ asset('assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="{{ asset('assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
-
-    </head>
+    @include('template.head')
 
     <body data-sidebar="dark">
 
@@ -53,7 +27,7 @@
                                     <img src="{{ asset('assets/images/logo-sm-light.png')}}" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/logo-light.png')}}" alt="" height="60">
+                                    <img src="{{ asset('assets/images/logo-liht.png')}}" alt="" height="60">
                                 </span>
                             </a>
                         </div>
@@ -70,136 +44,6 @@
                             </div>
                         </form>
 
-                        <div class="dropdown dropdown-mega d-none d-lg-block ml-2">
-                            <button type="button" class="btn header-item waves-effect" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                                Mega Menu
-                                <i class="mdi mdi-chevron-down"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-megamenu">
-                                <div class="row">
-                                    <div class="col-sm-8">
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <h5 class="font-size-14 mt-0">UI Components</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);">Lightbox</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Range Slider</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Sweet Alert</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Rating</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Forms</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Tables</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Charts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <h5 class="font-size-14 mt-0">Applications</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);">Ecommerce</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Calendar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Email</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Projects</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Tasks</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Contacts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <h5 class="font-size-14 mt-0">Extra Pages</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);">Light Sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Compact Sidebar</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Horizontal layout</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Maintenance</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Coming Soon</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Timeline</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">FAQs</a>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <h5 class="font-size-14 mt-0">UI Components</h5>
-                                                <ul class="list-unstyled megamenu-list">
-                                                    <li>
-                                                        <a href="javascript:void(0);">Lightbox</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Range Slider</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Sweet Alert</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Rating</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Forms</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Tables</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="javascript:void(0);">Charts</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-sm-5">
-                                                <div>
-                                                    <img src="{{ asset('assets/images/megamenu-img.png')}}" alt="" class="img-fluid mx-auto d-block">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
 
                     <div class="d-flex">
@@ -225,86 +69,6 @@
                             </div>
                         </div>
 
-                        <div class="dropdown d-none d-sm-inline-block">
-                            <button type="button" class="btn header-item waves-effect"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="" src="{{ asset('assets/images/flags/us.jpg')}}" alt="Header Language" height="16">
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right">
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="{{ asset('assets/images/flags/spain.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="{{ asset('assets/images/flags/germany.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">German</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="{{ asset('assets/images/flags/italy.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <img src="{{ asset('assets/images/flags/russia.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dropdown d-none d-lg-inline-block ml-1">
-                            <button type="button" class="btn header-item noti-icon waves-effect"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ri-apps-2-line"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <div class="px-lg-2">
-                                    <div class="row no-gutters">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/images/brands/github.png')}}" alt="Github">
-                                                <span>GitHub</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="assets/images/brands/bitbucket.png')}}" alt="bitbucket">
-                                                <span>Bitbucket</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/images/brands/dribbble.png')}}" alt="dribbble">
-                                                <span>Dribbble</span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="row no-gutters">
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="assets/images/brands/dropbox.png')}}" alt="dropbox">
-                                                <span>Dropbox</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/images/brands/mail_chimp.png')}}" alt="mail_chimp">
-                                                <span>Mail Chimp</span>
-                                            </a>
-                                        </div>
-                                        <div class="col">
-                                            <a class="dropdown-icon-item" href="#">
-                                                <img src="{{ asset('assets/images/brands/slack.png')}}" alt="slack">
-                                                <span>Slack</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="dropdown d-none d-lg-inline-block ml-1">
                             <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
@@ -335,27 +99,14 @@
                                         <div class="media">
                                             <div class="avatar-xs mr-3">
                                                 <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                    <i class="ri-shopping-cart-line"></i>
+                                                    <i class="ri-hand-coin-fill"></i>
                                                 </span>
                                             </div>
                                             <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Your order is placed</h6>
+                                                <h6 class="mt-0 mb-1">O prazo do pagamento expirou</h6>
                                                 <div class="font-size-12 text-muted">
-                                                    <p class="mb-1">If several languages coalesce the grammar</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset notification-item">
-                                        <div class="media">
-                                            <img src="{{ asset('assets/images/users/avatar-3.jpg')}}"
-                                                class="mr-3 rounded-circle avatar-xs" alt="user-pic">
-                                            <div class="media-body">
-                                                <h6 class="mt-0 mb-1">James Lemire</h6>
-                                                <div class="font-size-12 text-muted">
-                                                    <p class="mb-1">It will seem like simplified English.</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                                    <p class="mb-1">O pagamento de José expirou no dia 20-20-2020</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -363,15 +114,31 @@
                                     <a href="" class="text-reset notification-item">
                                         <div class="media">
                                             <div class="avatar-xs mr-3">
-                                                <span class="avatar-title bg-success rounded-circle font-size-16">
-                                                    <i class="ri-checkbox-circle-line"></i>
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="ri-hand-coin-fill"></i>
                                                 </span>
                                             </div>
                                             <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Your item is shipped</h6>
+                                                <h6 class="mt-0 mb-1">O prazo do pagamento expirou</h6>
                                                 <div class="font-size-12 text-muted">
-                                                    <p class="mb-1">If several languages coalesce the grammar</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                                    <p class="mb-1">O pagamento de José expirou no dia 20-20-2020</p>
+                                                    <p class="mb-0"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="" class="text-reset notification-item">
+                                        <div class="media">
+                                            <div class="avatar-xs mr-3">
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="ri-hand-coin-fill"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">O prazo do pagamento expirou</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">O pagamento de José expirou no dia 20-20-2020</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -379,13 +146,16 @@
 
                                     <a href="" class="text-reset notification-item">
                                         <div class="media">
-                                            <img src="{{ asset('assets/images/users/avatar-4.jpg')}}"
-                                                class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="avatar-xs mr-3">
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="ri-hand-coin-fill"></i>
+                                                </span>
+                                            </div>
                                             <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Salena Layfield</h6>
+                                                <h6 class="mt-0 mb-1">O prazo do pagamento expirou</h6>
                                                 <div class="font-size-12 text-muted">
-                                                    <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                                    <p class="mb-1">O pagamento de José expirou no dia 20-20-2020</p>
+                                                    <p class="mb-0"></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -449,12 +219,10 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> © Nazox.
+                                
                             </div>
                             <div class="col-sm-6">
-                                <div class="text-sm-right d-none d-sm-block">
-                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -532,9 +300,23 @@
         <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
         <script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 
+        <script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+        <script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+        <script src="{{ asset('assets/libs/jszip/jszip.min.js')}}"></script>
+        <script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js')}}"></script>
+        <script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js')}}"></script>
+        <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+        <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+        <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+
+        <script src="{{ asset('assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+        <script src="{{ asset('assets/libs/datatables.net-select/js/dataTables.select.min.js')}}"></script>
+
         <!-- Responsive examples -->
         <script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
         <script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+
+        <script src="{{ asset('assets/js/pages/datatables.init.js')}}"></script>
 
         <script src="{{ asset('assets/js/pages/dashboard.init.js')}}"></script>
 

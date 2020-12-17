@@ -22,7 +22,7 @@
 
             <li>
                 <a href="/emprestimos" class=" waves-effect">
-                    <i class=" ri-hand-coin-fill"></i>
+                    <i class="ri-hand-coin-fill"></i>
                     <span>Empréstimos</span>
                 </a>
             </li>
