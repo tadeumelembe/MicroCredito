@@ -19,9 +19,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', function () {
-    return view('home.home');
-});
+
 
 
 Route::get('/dashboard', function () {
@@ -30,8 +28,13 @@ Route::get('/dashboard', function () {
 
 
 Route::group(['middleware' => ['auth']], function() {
+  
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    
+    Route::get('/home', function () {
+        return view('home.home');
+    });
 });
 
 require __DIR__.'/auth.php';
