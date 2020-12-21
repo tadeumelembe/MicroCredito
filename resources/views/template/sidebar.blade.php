@@ -34,6 +34,13 @@
                 </a>
             </li>
 
+            <li>
+                <a href="{{url('roles')}}" class=" waves-effect">
+                    <i class="ri-group-fill"></i>
+                    <span>Roles</span>
+                </a>
+            </li>
+
         </ul>
     </div>
     <!-- Sidebar -->

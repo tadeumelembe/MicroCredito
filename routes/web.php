@@ -29,6 +29,7 @@ Route::get('/customer', function () {
     return view('customers.show');
 });
 
+
 Route::get('/emprestimos', function () {
     return view('loans.index');
 });
@@ -40,10 +41,11 @@ Route::get('/dashboard', function () {
 
 
 Route::group(['middleware' => ['auth']], function() {
-  
+
     Route::resource('roles', RoleController::class);
+    Route::get('roles', [RoleController::class, 'index'])->name('roles');
     Route::resource('users', UserController::class);
-    
+
     Route::get('/home', function () {
         return view('home.home');
     });

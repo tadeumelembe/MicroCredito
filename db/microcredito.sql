@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15-Dez-2020 às 16:23
+-- Tempo de geração: 21-Dez-2020 às 16:17
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -20,6 +20,71 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `microcredito`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cards`
+--
+
+CREATE TABLE `cards` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `numero` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data_deposito` date NOT NULL,
+  `data_levantamento` date NOT NULL,
+  `estado` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custumer_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `customers`
+--
+
+CREATE TABLE `customers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phoneNumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `doctype` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `docNumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nuit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `birthdate` date NOT NULL,
+  `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bairro` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rua` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `casa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estado` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `emprestimos`
+--
+
+CREATE TABLE `emprestimos` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `data_emprestimo` date NOT NULL,
+  `valorConcedido` double NOT NULL,
+  `taxaJuro` double NOT NULL,
+  `valorDivida` double NOT NULL,
+  `valorRemanescente` double NOT NULL,
+  `data_limite` date NOT NULL,
+  `estado` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custumer_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -57,7 +122,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2020_12_15_151011_create_permission_tables', 2);
+(4, '2020_12_15_151011_create_permission_tables', 2),
+(8, '2020_12_21_133819_create_customers_table', 3),
+(9, '2020_12_21_135109_create_cards_table', 3),
+(10, '2020_12_21_140709_create_parentes_table', 3),
+(11, '2020_12_21_141318_create_emprestimos_table', 3),
+(12, '2020_12_21_143609_create_prestacoes_table', 3);
 
 -- --------------------------------------------------------
 
@@ -89,6 +159,29 @@ CREATE TABLE `model_has_roles` (
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (2, 'App\\Models\\User', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `parentes`
+--
+
+CREATE TABLE `parentes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `docType` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `docNumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nuit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phoneNumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `grauParentesco` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dataNascimento` date NOT NULL,
+  `estado` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `custumer_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -129,6 +222,22 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 (6, 'user-create', 'web', '2020-12-15 13:17:02', '2020-12-15 13:17:02'),
 (7, 'user-edit', 'web', '2020-12-15 13:17:02', '2020-12-15 13:17:02'),
 (8, 'user-delete', 'web', '2020-12-15 13:17:02', '2020-12-15 13:17:02');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `prestacoes`
+--
+
+CREATE TABLE `prestacoes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `data` date NOT NULL,
+  `valor` double NOT NULL,
+  `emprestimo_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -205,6 +314,26 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 
 --
+-- Índices para tabela `cards`
+--
+ALTER TABLE `cards`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cards_custumer_id_foreign` (`custumer_id`);
+
+--
+-- Índices para tabela `customers`
+--
+ALTER TABLE `customers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `emprestimos`
+--
+ALTER TABLE `emprestimos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `emprestimos_custumer_id_foreign` (`custumer_id`);
+
+--
 -- Índices para tabela `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -232,6 +361,13 @@ ALTER TABLE `model_has_roles`
   ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
+-- Índices para tabela `parentes`
+--
+ALTER TABLE `parentes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `parentes_custumer_id_foreign` (`custumer_id`);
+
+--
 -- Índices para tabela `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -242,6 +378,13 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `prestacoes`
+--
+ALTER TABLE `prestacoes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `prestacoes_emprestimo_id_foreign` (`emprestimo_id`);
 
 --
 -- Índices para tabela `roles`
@@ -268,6 +411,24 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de tabela `cards`
+--
+ALTER TABLE `cards`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `customers`
+--
+ALTER TABLE `customers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `emprestimos`
+--
+ALTER TABLE `emprestimos`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -277,13 +438,25 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT de tabela `parentes`
+--
+ALTER TABLE `parentes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de tabela `prestacoes`
+--
+ALTER TABLE `prestacoes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `roles`
@@ -302,6 +475,18 @@ ALTER TABLE `users`
 --
 
 --
+-- Limitadores para a tabela `cards`
+--
+ALTER TABLE `cards`
+  ADD CONSTRAINT `cards_custumer_id_foreign` FOREIGN KEY (`custumer_id`) REFERENCES `customers` (`id`);
+
+--
+-- Limitadores para a tabela `emprestimos`
+--
+ALTER TABLE `emprestimos`
+  ADD CONSTRAINT `emprestimos_custumer_id_foreign` FOREIGN KEY (`custumer_id`) REFERENCES `customers` (`id`);
+
+--
 -- Limitadores para a tabela `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
@@ -312,6 +497,18 @@ ALTER TABLE `model_has_permissions`
 --
 ALTER TABLE `model_has_roles`
   ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
+
+--
+-- Limitadores para a tabela `parentes`
+--
+ALTER TABLE `parentes`
+  ADD CONSTRAINT `parentes_custumer_id_foreign` FOREIGN KEY (`custumer_id`) REFERENCES `customers` (`id`);
+
+--
+-- Limitadores para a tabela `prestacoes`
+--
+ALTER TABLE `prestacoes`
+  ADD CONSTRAINT `prestacoes_emprestimo_id_foreign` FOREIGN KEY (`emprestimo_id`) REFERENCES `emprestimos` (`id`);
 
 --
 -- Limitadores para a tabela `role_has_permissions`

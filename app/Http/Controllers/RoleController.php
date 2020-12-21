@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
+use DataTables;
 
 class RoleController extends Controller
 {
@@ -29,12 +30,52 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
-        $roles = Role::orderBy('id','DESC')->paginate(5);
-        return view('roles.index',compact('roles'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+
+
+        if ($request->ajax()) {
+            $data = Role::select('*');
+            return DataTables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('acção', function(Role $role){
+
+                        return $this->getActionColumn($role);
+
+                    })->addColumn('created_at', function( Role $role){
+
+                        return $role->created_at->format('d-m-Y');
+                })
+                    ->rawColumns(['acção'])
+                    ->make(true);
+        }
+
+        $permission = Permission::get();
+        return view('roles.index',compact('permission'));
     }
+
+    protected function getActionColumn($data): string
+    {
+
+        return "     <div class='dropdown mt-sm-0'>
+        <a href='' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            Acção<i class='mdi mdi-chevron-down'></i>
+        </a>
+
+        <div class='dropdown-menu' style=''>
+            <a class='dropdown-item' href=''>Ver</a>
+            <a class='dropdown-item' href=''>Editar</a>
+            <a class='dropdown-item' href=''>Apagar</a>
+        </div>
+    </div>
+                       ";
+
+
+
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,7 +104,7 @@ class RoleController extends Controller
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
 
-        return redirect()->route('roles.index')
+        return redirect()->route('roles')
                         ->with('success','Role created successfully');
     }
     /**
