@@ -9,12 +9,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0">Clientes</h4>
+                    <h4 class="mb-0">Roles</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="{{url('/home')}}">Inícios</a></li>
-                            <li class="breadcrumb-item active">Clientes</li>
+                            <li class="breadcrumb-item active">Roles</li>
                         </ol>
                     </div>
 
@@ -33,16 +33,14 @@
                         <p class="card-title-desc">
                         </p>
 
-                        <table id="customerDatatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                        <table id="roleDatatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
-                                <tr>
-                                    <th>#</th>
+                            <tr>
+                                <th>#</th>
                                     <th>Nome</th>
-                                    <th>Telefone</th>
-                                    <th>Email</th>
-                                    <th>Estado</th>
+                                    <th>Data de Criação</th>
                                     <th>Acção</th>
-                                </tr>
+                            </tr>
                             </thead>
                             <tbody>
                             </tbody>
@@ -167,10 +165,10 @@
 
 <script type="text/javascript">
     $(function() {
-        var table = $('#customerDatatable').DataTable({
+        var table = $('#roleDatatable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('customers') }}",
+            ajax: "{{ route('roles') }}",
             oLanguage: {
                 "sEmptyTable": "Não foi encontrado nenhum registo",
                 "sLoadingRecords": "A carregar...",
@@ -204,19 +202,10 @@
                 },
 
                 {
-                    data: 'phoneNumber',
-                    name: 'phoneNumber'
+                    data: 'created_at',
+                    name: 'created_at'
                 },
 
-                {
-                    data: 'email',
-                    name: 'email'
-                },
-
-                {
-                    data: 'estado',
-                    name: 'estado'
-                },
 
                 {
                     data: 'acção',

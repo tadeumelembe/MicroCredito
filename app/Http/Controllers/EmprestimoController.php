@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use App\Models\Emprestimo;
 use DB;
 use DataTables;
 
-class RoleController extends Controller
+class EmprestimoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +18,10 @@ class RoleController extends Controller
      */
     function __construct()
     {
-         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
-         $this->middleware('permission:role-create', ['only' => ['create','store']]);
-         $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        //  $this->middleware('permission:customer-list|customer-create|customer-edit|customer-delete', ['only' => ['index','store']]);
+        //  $this->middleware('permission:customer-create', ['only' => ['create','store']]);
+        //  $this->middleware('permission:customer-edit', ['only' => ['edit','update']]);
+        //  $this->middleware('permission:customer-delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -34,25 +33,20 @@ class RoleController extends Controller
     public function index(Request $request)
     {
 
-
         if ($request->ajax()) {
-            $data = Role::select('*');
+            $data = Emprestimo::select('*');
             return DataTables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('acção', function(Role $role){
+                    ->addColumn('acção', function(Emprestimo $emprestimo){
 
-                        return $this->getActionColumn($role);
+                        return $this->getActionColumn($emprestimo);
 
-                    })->addColumn('created_at', function( Role $role){
-
-                        return $role->created_at->format('d-m-Y');
-                })
+                    })
                     ->rawColumns(['acção'])
                     ->make(true);
         }
 
-        $permission = Permission::get();
-        return view('roles.index',compact('permission'));
+        return view('emprestimos.index');
     }
 
     protected function getActionColumn($data): string
@@ -68,11 +62,7 @@ class RoleController extends Controller
             <a class='dropdown-item' href=''>Editar</a>
             <a class='dropdown-item' href=''>Apagar</a>
         </div>
-    </div>
-                       ";
-
-
-
+    </div>";
 
     }
 

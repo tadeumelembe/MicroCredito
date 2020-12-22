@@ -14,14 +14,14 @@
             </li>
 
             <li>
-                <a href="/clientes" class=" waves-effect">
+                <a href="{{route('customers')}}" class=" waves-effect">
                     <i class=" ri-team-fill"></i>
                     <span>Clientes</span>
                 </a>
             </li>
 
             <li>
-                <a href="/emprestimos" class=" waves-effect">
+                <a href="{{route('emprestimos')}}" class=" waves-effect">
                     <i class="ri-hand-coin-fill"></i>
                     <span>Empréstimos</span>
                 </a>
@@ -31,6 +31,13 @@
                 <a href="/users" class=" waves-effect">
                     <i class="ri-group-fill"></i>
                     <span>Usuário</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{url('roles')}}" class=" waves-effect">
+                    <i class="ri-group-fill"></i>
+                    <span>Roles</span>
                 </a>
             </li>
 
