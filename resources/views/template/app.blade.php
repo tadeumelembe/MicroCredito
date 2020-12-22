@@ -27,7 +27,7 @@
                                     <img src="{{ asset('assets/images/logo-sm-light.png')}}" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('assets/images/logo-liht.png')}}" alt="" height="60">
+                                    <img src="{{ asset('assets/images/logo-light.png')}}" alt="" height="60">
                                 </span>
                             </a>
                         </div>
