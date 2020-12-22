@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmprestimoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +23,9 @@ Route::get('/', function () {
 
 
 
-Route::get('/clientes', function () {
-    return view('customers.index');
-});
+// Route::get('/clientes', function () {
+//     return view('customers.index');
+// });
 
 Route::get('/customer', function () {
     return view('customers.show');
@@ -42,8 +44,12 @@ Route::get('/dashboard', function () {
 
 Route::group(['middleware' => ['auth']], function() {
 
-    Route::resource('roles', RoleController::class);
+
+    Route::get('customers', [CustomerController::class, 'index'])->name('customers');
+    Route::get('emprestimos', [EmprestimoController::class, 'index'])->name('emprestimos');
     Route::get('roles', [RoleController::class, 'index'])->name('roles');
+
+
     Route::resource('users', UserController::class);
 
     Route::get('/home', function () {
