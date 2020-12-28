@@ -33,6 +33,27 @@ class UserController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
+    protected function getActionColumn($data): string
+    {
+
+        return "     <div class='dropdown mt-sm-0'>
+        <a href='' class='btn btn-secondary dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+            Acção<i class='mdi mdi-chevron-down'></i>
+        </a>
+
+        <div class='dropdown-menu' style=''>
+            <a class='dropdown-item' href=''>Ver</a>
+            <a class='dropdown-item' href=''>Editar</a>
+            <a class='dropdown-item' href=''>Apagar</a>
+        </div>
+    </div>
+                       ";
+
+
+
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

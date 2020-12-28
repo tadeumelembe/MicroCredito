@@ -10,12 +10,12 @@
       <div class="row">
           <div class="col-12">
               <div class="page-title-box d-flex align-items-center justify-content-between">
-                  <h4 class="mb-0">Empréstimos</h4>
+                  <h4 class="mb-0">Utilizadores</h4>
 
                   <div class="page-title-right">
                       <ol class="breadcrumb m-0">
                           <li class="breadcrumb-item"><a href="javascript: void(0);">Inícios</a></li>
-                          <li class="breadcrumb-item active">Clientes</li>
+                          <li class="breadcrumb-item active">utilizador</li>
                       </ol>
                   </div>
 
@@ -38,7 +38,7 @@
       <div class="card">
           <div class="card-body">
             
-            <div>
+            <div class="float-right pr-2 pb-2">
               <a href="javascript:void(0);" class="btn btn-success mb-2"><i class="mdi mdi-plus mr-2"></i>Adicionar Usuário</a>
           </div>
               <h4 class="card-title"></h4>

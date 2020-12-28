@@ -1041,5 +1041,5 @@
         <!-- end row -->
 
     </div>
-
+@include('home.js')
 @endsection
