@@ -29,8 +29,9 @@
             </div>
         </div>
         <!-- end page title -->
-        @include('emprestimos.edit')
-        @include('emprestimos.create')
+        @include('emprestimos.assets.edit')
+        @include('emprestimos.assets.create')
+        @include('emprestimos.assets.pay')
 
         <div class="row">
 
@@ -88,6 +89,6 @@
 <!-- Right bar overlay-->
 <div class="rightbar-overlay"></div>
 
-@include('emprestimos.js')
+@include('emprestimos.assets.js')
 
 @endsection

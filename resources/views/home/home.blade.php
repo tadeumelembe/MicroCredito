@@ -32,8 +32,8 @@
                             <div class="card-body">
                                 <div class="media">
                                     <div class="media-body overflow-hidden">
-                                        <p class="text-truncate font-size-14 mb-2">Number of Sales</p>
-                                        <h4 class="mb-0">1452</h4>
+                                        <p class="text-truncate font-size-14 mb-2">Total Concedido</p>
+                                        <h4 class="mb-0">MT 1452</h4>
                                     </div>
                                     <div class="text-primary">
                                         <i class="ri-stack-line font-size-24"></i>
@@ -42,9 +42,9 @@
                             </div>
 
                             <div class="card-body border-top py-3">
-                                <div class="text-truncate">
-                                    <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> 2.4% </span>
-                                    <span class="text-muted ml-2">From previous period</span>
+                                <div class="media-body overflow-hidden">
+                                    <p class="text-truncate font-size-14 mb-2">Este Mês</p>
+                                    <h4 class="mb-0">MT 1452</h4>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +54,8 @@
                             <div class="card-body">
                                 <div class="media">
                                     <div class="media-body overflow-hidden">
-                                        <p class="text-truncate font-size-14 mb-2">Sales Revenue</p>
-                                        <h4 class="mb-0">$ 38452</h4>
+                                        <p class="text-truncate font-size-14 mb-2">Número de Empréstimos</p>
+                                        <h4 class="mb-0">2040</h4>
                                     </div>
                                     <div class="text-primary">
                                         <i class="ri-store-2-line font-size-24"></i>
@@ -63,9 +63,9 @@
                                 </div>
                             </div>
                             <div class="card-body border-top py-3">
-                                <div class="text-truncate">
-                                    <span class="badge badge-soft-success font-size-11"><i class="mdi mdi-menu-up"> </i> 2.4% </span>
-                                    <span class="text-muted ml-2">From previous period</span>
+                                <div class="media-body overflow-hidden">
+                                    <p class="text-truncate font-size-14 mb-2">Este Mês</p>
+                                    <h4 class="mb-0">MT 1452</h4>
                                 </div>
                             </div>
                         </div>
@@ -75,8 +75,8 @@
                             <div class="card-body">
                                 <div class="media">
                                     <div class="media-body overflow-hidden">
-                                        <p class="text-truncate font-size-14 mb-2">Average Price</p>
-                                        <h4 class="mb-0">$ 15.4</h4>
+                                        <p class="text-truncate font-size-14 mb-2">Total </p>
+                                        <h4 class="mb-0">45</h4>
                                     </div>
                                     <div class="text-primary">
                                         <i class="ri-briefcase-4-line font-size-24"></i>
@@ -149,34 +149,26 @@
             <div class="col-xl-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="float-right">
-                            <select class="custom-select custom-select-sm">
-                                <option selected>Apr</option>
-                                <option value="1">Mar</option>
-                                <option value="2">Feb</option>
-                                <option value="3">Jan</option>
-                            </select>
-                        </div>
-                        <h4 class="card-title mb-4">Sales Analytics</h4>
+                        <h4 class="card-title mb-4">Faixa Etária dos Clientes</h4>
 
                         <div id="donut-chart" class="apex-charts"></div>
 
                         <div class="row">
                             <div class="col-4">
                                 <div class="text-center mt-4">
-                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-primary font-size-10 mr-1"></i> Product A</p>
+                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-primary font-size-10 mr-1"></i> 18-21</p>
                                     <h5>42 %</h5>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="text-center mt-4">
-                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-success font-size-10 mr-1"></i> Product B</p>
+                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-success font-size-10 mr-1"></i> 21-25</p>
                                     <h5>26 %</h5>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="text-center mt-4">
-                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-warning font-size-10 mr-1"></i> Product C</p>
+                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-warning font-size-10 mr-1"></i> 25-30</p>
                                     <h5>42 %</h5>
                                 </div>
                             </div>
@@ -282,7 +274,9 @@
                                             <td>
                                                 <h5 class="font-size-14 mb-0">Source 1</h5>
                                             </td>
-                                            <td><div id="spak-chart1"></div></td>
+                                            <td>
+                                                <div id="spak-chart1"></div>
+                                            </td>
                                             <td>
                                                 <p class="text-muted mb-0">$ 2478</p>
                                             </td>
@@ -299,7 +293,9 @@
                                                 <h5 class="font-size-14 mb-0">Source 2</h5>
                                             </td>
 
-                                            <td><div id="spak-chart2"></div></td>
+                                            <td>
+                                                <div id="spak-chart2"></div>
+                                            </td>
                                             <td>
                                                 <p class="text-muted mb-0">$ 2625</p>
                                             </td>
@@ -315,7 +311,9 @@
                                             <td>
                                                 <h5 class="font-size-14 mb-0">Source 3</h5>
                                             </td>
-                                            <td><div id="spak-chart3"></div></td>
+                                            <td>
+                                                <div id="spak-chart3"></div>
+                                            </td>
                                             <td>
                                                 <p class="text-muted mb-0">$ 2856</p>
                                             </td>
@@ -690,7 +688,7 @@
                                         </div>
                                     </li>
 
-                                    <li >
+                                    <li>
                                         <div class="conversation-list">
                                             <div class="chat-avatar">
                                                 <img src="{{asset('assets/images/users/avatar-2.jpg')}}" alt="">
@@ -1041,5 +1039,5 @@
         <!-- end row -->
 
     </div>
-@include('home.js')
-@endsection
+    @include('home.js')
+    @endsection
