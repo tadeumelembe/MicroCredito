@@ -9,12 +9,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-0">Dashboard</h4>
+                    <h4 class="mb-0">Resumo</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Nazox</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">início</a></li>
+                            <li class="breadcrumb-item active">Resumo</li>
                         </ol>
                     </div>
 
@@ -96,54 +96,12 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <div class="float-right d-none d-md-inline-block">
-                            <div class="btn-group mb-2">
-                                <button type="button" class="btn btn-sm btn-light">Today</button>
-                                <button type="button" class="btn btn-sm btn-light active">Weekly</button>
-                                <button type="button" class="btn btn-sm btn-light">Monthly</button>
-                            </div>
-                        </div>
-                        <h4 class="card-title mb-4">Revenue Analytics</h4>
-                        <div>
-                            <div id="line-column-chart" class="apex-charts" dir="ltr"></div>
-                        </div>
-                    </div>
+                        <h4 class="card-title mb-4">Empréstimos por faixa etária</h4>
 
-                    <div class="card-body border-top text-center">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="d-inline-flex">
-                                    <h5 class="mr-2">$12,253</h5>
-                                    <div class="text-success">
-                                        <i class="mdi mdi-menu-up font-size-14"> </i>2.2 %
-                                    </div>
-                                </div>
-                                <p class="text-muted text-truncate mb-0">This month</p>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="mt-4 mt-sm-0">
-                                    <p class="mb-2 text-muted text-truncate"><i class="mdi mdi-circle text-primary font-size-10 mr-1"></i> This Year :</p>
-                                    <div class="d-inline-flex">
-                                        <h5 class="mb-0 mr-2">$ 34,254</h5>
-                                        <div class="text-success">
-                                            <i class="mdi mdi-menu-up font-size-14"> </i>2.1 %
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="mt-4 mt-sm-0">
-                                    <p class="mb-2 text-muted text-truncate"><i class="mdi mdi-circle text-success font-size-10 mr-1"></i> Previous Year :</p>
-                                    <div class="d-inline-flex">
-                                        <h5 class="mb-0">$ 32,695</h5>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        <div id="column_chart" class="apex-charts" dir="ltr"></div>
                     </div>
                 </div>
+                <!--end card-->
             </div>
 
             <div class="col-xl-4">
@@ -228,108 +186,10 @@
         </div>
         <!-- end row -->
 
+
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="dropdown float-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
-                        </div>
-
-                        <h4 class="card-title mb-3">Sources</h4>
-
-                        <div>
-                            <div class="text-center">
-                                <p class="mb-2">Total sources</p>
-                                <h4>$ 7652</h4>
-                                <div class="text-success">
-                                    <i class="mdi mdi-menu-up font-size-14"> </i>2.2 %
-                                </div>
-                            </div>
-
-                            <div class="table-responsive mt-4">
-                                <table class="table table-hover mb-0 table-centered table-nowrap">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 60px;">
-                                                <div class="avatar-xs">
-                                                    <div class="avatar-title rounded-circle bg-light">
-                                                        <img src="{{asset('assets/images/companies/img-1.png')}}" alt="" height="20">
-                                                    </div>
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                                <h5 class="font-size-14 mb-0">Source 1</h5>
-                                            </td>
-                                            <td>
-                                                <div id="spak-chart1"></div>
-                                            </td>
-                                            <td>
-                                                <p class="text-muted mb-0">$ 2478</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="avatar-xs">
-                                                    <div class="avatar-title rounded-circle bg-light">
-                                                        <img src="{{asset('assets/images/companies/img-2.png')}}" alt="" height="20">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-14 mb-0">Source 2</h5>
-                                            </td>
-
-                                            <td>
-                                                <div id="spak-chart2"></div>
-                                            </td>
-                                            <td>
-                                                <p class="text-muted mb-0">$ 2625</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="avatar-xs">
-                                                    <div class="avatar-title rounded-circle bg-light">
-                                                        <img src="{{asset('assets/images/companies/img-3.png')}}" alt="" height="20">
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h5 class="font-size-14 mb-0">Source 3</h5>
-                                            </td>
-                                            <td>
-                                                <div id="spak-chart3"></div>
-                                            </td>
-                                            <td>
-                                                <p class="text-muted mb-0">$ 2856</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="text-center mt-4">
-                                <a href="#" class="btn btn-primary btn-sm">View more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
+            
+        <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
                         <div class="dropdown float-right">
@@ -469,275 +329,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="dropdown float-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Sales Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Profit</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
-                        </div>
-
-                        <h4 class="card-title mb-4">Revenue by Locations</h4>
-
-                        <div id="usa-vectormap" style="height: 196px"></div>
-
-                        <div class="row justify-content-center">
-                            <div class="col-xl-5 col-md-6">
-                                <div class="mt-2">
-                                    <div class="clearfix py-2">
-                                        <h5 class="float-right font-size-16 m-0">$ 2542</h5>
-                                        <p class="text-muted mb-0 text-truncate">California :</p>
-
-                                    </div>
-                                    <div class="clearfix py-2">
-                                        <h5 class="float-right font-size-16 m-0">$ 2245</h5>
-                                        <p class="text-muted mb-0 text-truncate">Nevada :</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-5 offset-xl-1 col-md-6">
-                                <div class="mt-2">
-                                    <div class="clearfix py-2">
-                                        <h5 class="float-right font-size-16 m-0">$ 2156</h5>
-                                        <p class="text-muted mb-0 text-truncate">Montana :</p>
-
-                                    </div>
-                                    <div class="clearfix py-2">
-                                        <h5 class="float-right font-size-16 m-0">$ 1845</h5>
-                                        <p class="text-muted mb-0 text-truncate">Texas :</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mt-4">
-                            <a href="#" class="btn btn-primary btn-sm">Learn more</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end row -->
-
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body border-bottom">
-
-                        <div class="user-chat-border">
-                            <div class="row">
-                                <div class="col-md-5 col-9">
-                                    <h5 class="font-size-15 mb-1">Frank Vickery</h5>
-                                    <p class="text-muted mb-0"><i class="mdi mdi-circle text-success align-middle mr-1"></i> Active now</p>
-                                </div>
-                                <div class="col-md-7 col-3">
-                                    <ul class="list-inline user-chat-nav text-right mb-0">
-                                        <li class="list-inline-item">
-                                            <div class="dropdown">
-                                                <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-magnify"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-md p-0">
-                                                    <form class="p-2">
-                                                        <div class="search-box">
-                                                            <div class="position-relative">
-                                                                <input type="text" class="form-control rounded bg-light border-0" placeholder="Search...">
-                                                                <i class="mdi mdi-magnify search-icon"></i>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-inline-item d-none d-sm-inline-block">
-                                            <div class="dropdown">
-                                                <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-cog"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">View Profile</a>
-                                                    <a class="dropdown-item" href="#">Clear chat</a>
-                                                    <a class="dropdown-item" href="#">Muted</a>
-                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="list-inline-item">
-                                            <div class="dropdown">
-                                                <button class="btn nav-btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="mdi mdi-dots-horizontal"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Action</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
-                                                    <a class="dropdown-item" href="#">Something else</a>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="chat-widget">
-                            <div class="chat-conversation" data-simplebar style="max-height: 292px;">
-                                <ul class="list-unstyled mb-0 pr-3">
-                                    <li>
-                                        <div class="conversation-list">
-                                            <div class="chat-avatar">
-                                                <img src="{{asset('assets/images/users/avatar-2.jpg')}}" alt="">
-                                            </div>
-                                            <div class="ctext-wrap">
-                                                <div class="conversation-name">Frank Vickery</div>
-                                                <div class="ctext-wrap-content">
-                                                    <p class="mb-0">
-                                                        Hey! I am available
-                                                    </p>
-                                                </div>
-                                                <p class="chat-time mb-0"><i class="mdi mdi-clock-outline align-middle mr-1"></i> 12:09</p>
-                                            </div>
-
-                                        </div>
-                                    </li>
-
-                                    <li class="right">
-                                        <div class="conversation-list">
-                                            <div class="ctext-wrap">
-                                                <div class="conversation-name">Ricky Clark</div>
-                                                <div class="ctext-wrap-content">
-                                                    <p class="mb-0">
-                                                        Hi, How are you? What about our next meeting?
-                                                    </p>
-                                                </div>
-
-                                                <p class="chat-time mb-0"><i class="bx bx-time-five align-middle mr-1"></i> 10:02</p>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="chat-day-title">
-                                            <span class="title">Today</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="conversation-list">
-                                            <div class="chat-avatar">
-                                                <img src="{{asset('assets/images/users/avatar-2.jpg')}}" alt="">
-                                            </div>
-                                            <div class="ctext-wrap">
-                                                <div class="conversation-name">Frank Vickery</div>
-                                                <div class="ctext-wrap-content">
-                                                    <p class="mb-0">
-                                                        Hello!
-                                                    </p>
-                                                </div>
-                                                <p class="chat-time mb-0"><i class="mdi mdi-clock-outline align-middle mr-1"></i> 10:00</p>
-                                            </div>
-
-                                        </div>
-                                    </li>
-
-                                    <li class="right">
-                                        <div class="conversation-list">
-                                            <div class="ctext-wrap">
-                                                <div class="conversation-name">Ricky Clark</div>
-                                                <div class="ctext-wrap-content">
-                                                    <p class="mb-0">
-                                                        Hi, How are you? What about our next meeting?
-                                                    </p>
-                                                </div>
-
-                                                <p class="chat-time mb-0"><i class="bx bx-time-five align-middle mr-1"></i> 10:02</p>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="conversation-list">
-                                            <div class="chat-avatar">
-                                                <img src="{{asset('assets/images/users/avatar-2.jpg')}}" alt="">
-                                            </div>
-                                            <div class="ctext-wrap">
-                                                <div class="conversation-name">Frank Vickery</div>
-                                                <div class="ctext-wrap-content">
-                                                    <p class="mb-0">
-                                                        Yeah everything is fine
-                                                    </p>
-                                                </div>
-
-                                                <p class="chat-time mb-0"><i class="bx bx-time-five align-middle mr-1"></i> 10:06</p>
-                                            </div>
-
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="conversation-list">
-                                            <div class="chat-avatar">
-                                                <img src="{{asset('assets/images/users/avatar-2.jpg')}}" alt="">
-                                            </div>
-                                            <div class="ctext-wrap">
-                                                <div class="conversation-name">Frank Vickery</div>
-                                                <div class="ctext-wrap-content">
-                                                    <p class="mb-0">& Next meeting tomorrow 10.00AM</p>
-                                                </div>
-                                                <p class="chat-time mb-0"><i class="bx bx-time-five align-middle mr-1"></i> 10:06</p>
-                                            </div>
-
-                                        </div>
-                                    </li>
-
-                                    <li class="right">
-                                        <div class="conversation-list">
-                                            <div class="ctext-wrap">
-                                                <div class="conversation-name">Ricky Clark</div>
-                                                <div class="ctext-wrap-content">
-                                                    <p class="mb-0">
-                                                        Wow that's great
-                                                    </p>
-                                                </div>
-
-                                                <p class="chat-time mb-0"><i class="bx bx-time-five align-middle mr-1"></i> 10:07</p>
-                                            </div>
-                                        </div>
-                                    </li>
-
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-3 chat-input-section border-top">
-                        <div class="row">
-                            <div class="col">
-                                <div>
-                                    <input type="text" class="form-control rounded chat-input pl-3" placeholder="Enter Message...">
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary chat-send w-md waves-effect waves-light"><span class="d-none d-sm-inline-block mr-2">Send</span> <i class="mdi mdi-send"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-body">
@@ -757,7 +348,7 @@
                             </div>
                         </div>
 
-                        <h4 class="card-title mb-4">Latest Transactions</h4>
+                        <h4 class="card-title mb-4">Últimos empréstimos</h4>
 
                         <div class="table-responsive">
                             <table class="table table-centered datatable dt-responsive nowrap" data-page-length="5" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

@@ -9,7 +9,7 @@
             <li>
                 <a href="/home" class="waves-effect">
                     <i class="ri-dashboard-line"></i><span class="badge badge-pill badge-success float-right">3</span>
-                    <span>Dashboard</span>
+                    <span>Resumo</span>
                 </a>
             </li>
 
