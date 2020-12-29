@@ -27,16 +27,16 @@
         <div class="row">
             <div class="col-6">
                 <div class="card">
-                    
+
                     <div class="card-body" style="display: inline">
                         <div style="display: inline">
                             <h4 class="text-center mb-4 mt-4">Elton Cuambe</h4>
                         </div>
 
                         <div style="display: inline">
-                        <small class="text-muted">Phone</small>
-                        <h6>820896638</h6>
-                        </div>                        
+                            <small class="text-muted">Phone</small>
+                            <h6>820896638</h6>
+                        </div>
 
                         <small class="text-muted">Email</small>
                         <h6>tadeumelembe@gmail.com</h6>
@@ -49,23 +49,23 @@
 
                         <small class="text-muted">Sexo</small>
                         <h6>Masculino</h6>
-                        
+
                     </div>
                 </div>
             </div> <!-- end col -->
 
             <div class="col-6">
                 <div class="card bg-success text-white-50" style="height: 50%">
-                    
+
                     <div class="card-body" style="display: inline">
                         <div style="display: inline">
                             <h4 class="text-center text-white mb-4 mt-4">Total em Divida</h4>
                         </div>
 
                         <div class="text-center" style="display: inline">
-                        <h5 class="text-white">MT 256.200,00</h5>
-                        </div>            
-                        
+                            <h5 class="text-white">MT 256.200,00</h5>
+                        </div>
+
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -73,7 +73,7 @@
         <div class="row">
             <div class="col-3 d-none">
                 <div class="card" style="height: 90%">
-                    
+
                     <div class="card-body">
                         <h4 class="text-center mb-4 mt-4">Elton Cuambe</h4>
                         <small class="text-muted pt-4 db">Phone</small>
@@ -90,165 +90,98 @@
 
                         <small class="text-muted">Sexo</small>
                         <h6>Masculino</h6>
-                        
+
                     </div>
                 </div>
-            </div> <!-- end col -->
-            <div class="col-12">
+            </div>
+        </div> <!-- end row -->
+        <div class="row">
+            <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title">Emprestimos</h4>
+                        <h4 class="card-title">Empréstimos/Parentes</h4>
+                        <p class="card-title-desc"></p>
 
-                        <table id="datatable" class="table table-bordered dt-responsive nowrap loan-table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th>Empréstimo ID</th>
-                                <th>Data Emprestimo</th>
-                                <th>Valor concedido</th>
-                                <th>Juro(%)</th>
-                                <th>Remanescente</th>
-                                <th>Acção</th>
-                            </tr>
-                            </thead>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#loans" role="tab">
+                                    <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                    <span class="d-none d-sm-block">Empréstimos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#kins" role="tab">
+                                    <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                                    <span class="d-none d-sm-block">Parentes</span>
+                                </a>
+                            </li>
+                        </ul>
 
+                        <!-- Tab panes -->
+                        <div class="tab-content p-3 text-muted">
+                            <div class="tab-pane active" id="loans" role="tabpanel">
+                                @include('customers.assets.emprestimos')
+                            </div>
+                            <div class="tab-pane" id="kins" role="tabpanel">
+                                @include('customers.assets.parentes')
+                            </div>
+                        </div>
 
-                            <tbody>
-                                <tr>
-                                    <td>#AB1233</td>
-                                    <td>02-02-2020</td>
-                                    <td>25000MT</td>
-                                    <td>5%</td>
-                                    <td>30000MT</td>
-                                    <td>
-                                        <div class="dropdown mt-sm-0">
-                                            <a href="#" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Acção<i class="mdi mdi-chevron-down"></i>
-                                            </a>
-    
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="#">Ver</a>
-                                                <a class="dropdown-item" href="#">Editar</a>
-                                                <a class="dropdown-item" href="#">Apagar</a>
-                                            </div>
-                                        </div>
-                                    </td>                                
-                                </tr>
-                                <tr>
-                                    <td>#AB1233</td>
-                                    <td>02-02-2020</td>
-                                    <td>25000MT</td>
-                                    <td>5%</td>
-                                    <td>30000MT</td>
-                                    <td>
-                                        <div class="dropdown mt-sm-0">
-                                            <a href="#" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Acção<i class="mdi mdi-chevron-down"></i>
-                                            </a>
-    
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="#">Ver</a>
-                                                <a class="dropdown-item" href="#">Editar</a>
-                                                <a class="dropdown-item" href="#">Apagar</a>
-                                            </div>
-                                        </div>
-                                    </td>                                
-                                </tr>
-                                <tr>
-                                    <td>#AB1233</td>
-                                    <td>02-02-2020</td>
-                                    <td>25000MT</td>
-                                    <td>5%</td>
-                                    <td>30000MT</td>
-                                    <td>
-                                        <div class="dropdown mt-sm-0">
-                                            <a href="#" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Acção<i class="mdi mdi-chevron-down"></i>
-                                            </a>
-    
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="#">Ver</a>
-                                                <a class="dropdown-item" href="#">Editar</a>
-                                                <a class="dropdown-item" href="#">Apagar</a>
-                                            </div>
-                                        </div>
-                                    </td>                                
-                                </tr>
-                                <tr>
-                                    <td>#AB1233</td>
-                                    <td>02-02-2020</td>
-                                    <td>25000MT</td>
-                                    <td>5%</td>
-                                    <td>30000MT</td>
-                                    <td>
-                                        <div class="dropdown mt-sm-0">
-                                            <a href="#" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Acção<i class="mdi mdi-chevron-down"></i>
-                                            </a>
-    
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="#">Ver</a>
-                                                <a class="dropdown-item" href="#">Editar</a>
-                                                <a class="dropdown-item" href="#">Apagar</a>
-                                            </div>
-                                        </div>
-                                    </td>                                
-                                </tr>
-                                <tr>
-                                    <td>#AB1233</td>
-                                    <td>02-02-2020</td>
-                                    <td>25000MT</td>
-                                    <td>5%</td>
-                                    <td>30000MT</td>
-                                    <td>
-                                        <div class="dropdown mt-sm-0">
-                                            <a href="#" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Acção<i class="mdi mdi-chevron-down"></i>
-                                            </a>
-    
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="#">Ver</a>
-                                                <a class="dropdown-item" href="#">Editar</a>
-                                                <a class="dropdown-item" href="#">Apagar</a>
-                                            </div>
-                                        </div>
-                                    </td>                                
-                                </tr>
-                                <tr>
-                                    <td>#AB1233</td>
-                                    <td>02-02-2020</td>
-                                    <td>25000MT</td>
-                                    <td>5%</td>
-                                    <td>30000MT</td>
-                                    <td>
-                                        <div class="dropdown mt-sm-0">
-                                            <a href="#" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Acção<i class="mdi mdi-chevron-down"></i>
-                                            </a>
-    
-                                            <div class="dropdown-menu" style="">
-                                                <a class="dropdown-item" href="#">Ver</a>
-                                                <a class="dropdown-item" href="#">Editar</a>
-                                                <a class="dropdown-item" href="#">Apagar</a>
-                                            </div>
-                                        </div>
-                                    </td>                                
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
-            </div> <!-- end col -->
-        </div> <!-- end row -->
+            </div>
+        </div>
 
     </div>
+</div>
 
-    <script>
-        $('#datatable').DataTable({
-            "pageLength" : 5,
+@include('template.js')
+<!-- jquery.vectormap map -->
+<script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js')}}"></script>
+
+<!-- Required datatable js -->
+<script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
+<script src="{{ asset('assets/libs/jszip/jszip.min.js')}}"></script>
+<script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js')}}"></script>
+<script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js')}}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
+
+<script src="{{ asset('assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+<script src="{{ asset('assets/libs/datatables.net-select/js/dataTables.select.min.js')}}"></script>
+
+<!-- Responsive examples -->
+<script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+
+<script src="{{ asset('assets/js/pages/datatables.init.js')}}"></script>
+
+<!-- form mask -->
+<script src="{{ asset('assets/libs/inputmask/jquery.inputmask.min.js')}}"></script>
+
+<!-- form mask init -->
+<script src="{{ asset('assets/js/pages/form-mask.init.js')}}"></script>
+
+<script src="{{ asset('assets/js/app.js')}}"></script>
+
+
+<script>
+    /* $('#datatable').DataTable({
+            "pageLength": 5,
             "lengthChange": false,
-            "lengthMenu": [[5, 10, 20, -1], [5, 10, 20, 'Todos']]
-        })
-    </script>
+            "lengthMenu": [
+                [5, 10, 20, -1],
+                [5, 10, 20, 'Todos']
+            ]
+        })*/
+</script>
 
 @endsection

@@ -63,7 +63,7 @@ class CustomerController extends Controller
 
         <div class='dropdown-menu' style=''>
             <a class='dropdown-item' href=''>Ver</a>
-            <a class='dropdown-item' href=''>Editar</a>
+            <a class='dropdown-item' href='' data-toggle='modal' data-target='.create-modal'>Editar</a>
             <a class='dropdown-item' href=''>Apagar</a>
         </div>
     </div>";

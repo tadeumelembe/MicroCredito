@@ -1,4 +1,8 @@
 @include('template.js')
+
+<!-- apexcharts -->
+<script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js')}}"></script>
+
 <!-- jquery.vectormap map -->
 <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
 <script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js')}}"></script>
@@ -25,20 +29,49 @@
 
 <script src="{{ asset('assets/js/pages/datatables.init.js')}}"></script>
 
+<script src="{{ asset('assets/libs/select2/js/select2.min.js')}}"></script>
+<script src="{{ asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{ asset('assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js')}}"></script>
+<script src="{{ asset('assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+<script src="{{ asset('assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
+<script src="{{ asset('assets/js/pages/form-advanced.init.js')}}"></script>
+
 <!-- form mask -->
 <script src="{{ asset('assets/libs/inputmask/jquery.inputmask.min.js')}}"></script>
-
-<!-- form mask init -->
 <script src="{{ asset('assets/js/pages/form-mask.init.js')}}"></script>
 
 <script src="{{ asset('assets/js/app.js')}}"></script>
 
+<script>
+    $("#valor-concedido").keyup(function() {
+
+        var juro = parseFloat($('#taxa-juro').val().replace(",", ""));
+        var valor = parseFloat($('#valor-concedido').val().replace(",", ""));
+        var total = valor + (valor * juro / 100);
+        total = total.toFixed(2);
+        total = total.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+
+        $("#valor-total").html("MT " + total);
+    });
+
+    //form submit
+    $("#create-submit").click(function() {
+
+        $('#create-form').submit()
+    });
+
+    $("#edit-submit").click(function() {
+
+        $('#edit-form').submit()
+    });
+</script>
+
 <script type="text/javascript">
     $(function() {
-        var table = $('#customerDatatable').DataTable({
+        var table = $('#emprestimoDatatable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('customers') }}",
+            ajax: "{{ route('emprestimos') }}",
             oLanguage: {
                 "sEmptyTable": "Não foi encontrado nenhum registo",
                 "sLoadingRecords": "A carregar...",
@@ -66,19 +99,25 @@
                     data: 'id',
                     name: 'id'
                 },
+
                 {
-                    data: 'name',
-                    name: 'name'
+                    data: 'data_emprestimo',
+                    name: 'data_emprestimo'
                 },
 
                 {
-                    data: 'phoneNumber',
-                    name: 'phoneNumber'
+                    data: 'valorConcedido',
+                    name: 'valorConcedido'
                 },
 
                 {
-                    data: 'email',
-                    name: 'email'
+                    data: 'taxaJuro',
+                    name: 'taxaJuro'
+                },
+
+                {
+                    data: 'valorRemanescente',
+                    name: 'valorRemanescente'
                 },
 
                 {

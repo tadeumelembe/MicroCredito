@@ -30,7 +30,8 @@
         </div>
         <!-- end page title -->
 
-        @include('customers.create')
+        @include('customers.assets.edit')
+        @include('customers.assets.create')
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -64,18 +65,7 @@
 
     <!-- container-fluid -->
 </div>
-<!-- End Page-content -->
 
-
-</div>
-<!-- end main content-->
-
-</div>
-<!-- END layout-wrapper -->
-
-<!-- Right bar overlay-->
-<div class="rightbar-overlay"></div>
-
-@include('customers.js')
+@include('customers.assets.js')
 
 @endsection
