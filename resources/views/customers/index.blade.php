@@ -30,8 +30,8 @@
         </div>
         <!-- end page title -->
 
-        @include('customers.assets.edit')
-        @include('customers.assets.create')
+        @include('customers.assets.index.edit')
+        @include('customers.assets.index.create')
         <div class="row">
             <div class="col-12">
                 <div class="card">

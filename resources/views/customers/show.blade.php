@@ -14,6 +14,7 @@
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
                             <li class="breadcrumb-item"><a href="javascript: void(0);">Inícios</a></li>
+                            <li class="breadcrumb-item active">Clientes</li>
                             <li class="breadcrumb-item active">Cliente</li>
                         </ol>
                     </div>
@@ -34,7 +35,7 @@
                         </div>
 
                         <div style="display: inline">
-                            <small class="text-muted">Phone</small>
+                            <small class="text-muted">Telefone</small>
                             <h6>820896638</h6>
                         </div>
 
@@ -55,16 +56,24 @@
             </div> <!-- end col -->
 
             <div class="col-6">
-                <div class="card bg-success text-white-50" style="height: 50%">
-
+                <div class="card bg-white text-white-50">
+                    <h3 class="card-title text-center my-4">Estatísticas</h3>
                     <div class="card-body" style="display: inline">
+
                         <div style="display: inline">
-                            <h4 class="text-center text-white mb-4 mt-4">Total em Divida</h4>
+                            <small class="text-muted">Empréstimos</small>
+                            <h6>4</h6>
                         </div>
 
-                        <div class="text-center" style="display: inline">
-                            <h5 class="text-white">MT 256.200,00</h5>
+                        <small class="text-muted">Parentes</small>
+                        <h6>2</h6>
+                        <div style="display: inline">
+                            <small class="text-muted">Total concedido</small>
+                            <h6>MT 20004</h6>
                         </div>
+
+                        <small class="text-muted">Valor em dívida</small>
+                        <h6>MT 3000</h6>
 
                     </div>
                 </div>
@@ -95,6 +104,7 @@
                 </div>
             </div>
         </div> <!-- end row -->
+        @include('customers.assets.show.create')
         <div class="row">
             <div class="col-xl-12">
                 <div class="card">
@@ -117,15 +127,27 @@
                                     <span class="d-none d-sm-block">Parentes</span>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#cards" role="tab">
+                                    <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                                    <span class="d-none d-sm-block">Documentos</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#attachs" role="tab">
+                                    <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                                    <span class="d-none d-sm-block">Anexos</span>
+                                </a>
+                            </li>
                         </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content p-3 text-muted">
                             <div class="tab-pane active" id="loans" role="tabpanel">
-                                @include('customers.assets.emprestimos')
+                                @include('customers.assets.show.emprestimos')
                             </div>
                             <div class="tab-pane" id="kins" role="tabpanel">
-                                @include('customers.assets.parentes')
+                                @include('customers.assets.show.parentes')
                             </div>
                         </div>
 
@@ -137,51 +159,6 @@
     </div>
 </div>
 
-@include('template.js')
-<!-- jquery.vectormap map -->
-<script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-<script src="{{ asset('assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js')}}"></script>
-
-<!-- Required datatable js -->
-<script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
-
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')}}"></script>
-<script src="{{ asset('assets/libs/jszip/jszip.min.js')}}"></script>
-<script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js')}}"></script>
-<script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js')}}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-<script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-
-<script src="{{ asset('assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
-<script src="{{ asset('assets/libs/datatables.net-select/js/dataTables.select.min.js')}}"></script>
-
-<!-- Responsive examples -->
-<script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-<script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-
-<script src="{{ asset('assets/js/pages/datatables.init.js')}}"></script>
-
-<!-- form mask -->
-<script src="{{ asset('assets/libs/inputmask/jquery.inputmask.min.js')}}"></script>
-
-<!-- form mask init -->
-<script src="{{ asset('assets/js/pages/form-mask.init.js')}}"></script>
-
-<script src="{{ asset('assets/js/app.js')}}"></script>
-
-
-<script>
-    /* $('#datatable').DataTable({
-            "pageLength": 5,
-            "lengthChange": false,
-            "lengthMenu": [
-                [5, 10, 20, -1],
-                [5, 10, 20, 'Todos']
-            ]
-        })*/
-</script>
+@include('customers.assets.show.js')
 
 @endsection
