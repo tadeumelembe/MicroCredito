@@ -59,7 +59,8 @@ class EmprestimoController extends Controller
 
         <div class='dropdown-menu' style=''>
             <a class='dropdown-item' href=''>Ver</a>
-            <a class='dropdown-item' href=''>Editar</a>
+            <a class='dropdown-item' href='' data-toggle='modal' data-target='.pay-modal'>Pagamento</a>
+            <a class='dropdown-item' href='' data-toggle='modal' data-target='.edit-modal'>Editar</a>
             <a class='dropdown-item' href=''>Apagar</a>
         </div>
     </div>";
