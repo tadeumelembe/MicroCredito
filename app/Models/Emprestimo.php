@@ -20,6 +20,7 @@ class Emprestimo extends Model
         'valorRemanescente',
         'data_limite',
         'estado',
+        'customer_id'
     ];
 
     public function customer(){

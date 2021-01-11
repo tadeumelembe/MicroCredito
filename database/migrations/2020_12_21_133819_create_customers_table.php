@@ -27,6 +27,7 @@ class CreateCustomersTable extends Migration
             $table->string('rua');
             $table->string('casa');
             $table->string('email');
+            $table->string('nationality');
             $table->string('estado');
             $table->timestamps();
             $table->softDeletes();

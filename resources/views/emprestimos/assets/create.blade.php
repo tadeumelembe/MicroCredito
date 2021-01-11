@@ -8,17 +8,14 @@
                 </button>
             </div>
             <div class="modal-body px-4">
-                <form id="create-form" class="needs-validation" novalidate method="post">
+                <form id="create-form" class="needs-validation" novalidate method="post" action="{{route('emprestimos.store')}}">
                 @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nome">Cliente</label>
-                                <select id="customer" name="customer" class="form-control select2">
-                                    <option> </option>
-                                    <option value="AK">Alaska</option>
-                                    <option value="HI">Hawaii</option>
-                                    <option value="AZ">Arizona</option>
+                                <select id="Customer" name="customer_id" class="form-control select2">
+
                                 </select>
                                 <div class="valid-feedback">
                                     Looks good!
@@ -32,7 +29,7 @@
                                     <span class="input-group-addon input-group-prepend">
                                         <span class="input-group-text">%</span>
                                     </span>
-                                    <input type="text" id="taxa-juro" name="taxa-juro" data-bts-prefix="MT" class="form-control input-mask text-left" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" inputmode="numeric" value="5">
+                                    <input type="text" id="taxa-juro" name="taxaJuro" data-bts-prefix="MT" class="form-control input-mask text-left" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" inputmode="numeric" value="5">
                                 </div>
                             </div>
 
@@ -46,7 +43,7 @@
                                     <span class="input-group-addon input-group-prepend">
                                         <span class="input-group-text">MT</span>
                                     </span>
-                                    <input type="text" id="valor-concedido" name="valor-concedido" data-bts-prefix="mt" class="form-control input-mask text-left" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" inputmode="numeric">
+                                    <input type="number" id="valor-concedido" name="valorConcedido" data-bts-prefix="mt" class="form-control input-mask text-left" data-inputmask="'alias': 'numeric', 'groupSeparator': ',', 'digits': 2, 'digitsOptional': false, 'placeholder': '0'" inputmode="numeric">
                                 </div>
                                 <div class="valid-feedback">
                                     Looks good!
@@ -57,6 +54,7 @@
                             <div class="form-group">
                                 <label for="telefone">Valor a Pagar</label><br>
                                 <h5 class="text-success" id="valor-total" for="telefone">MT 0</h5>
+                                <input type="number" class="invisible" id="valorDivida" name="valorDivida">
                             </div>
                         </div>
                     </div>

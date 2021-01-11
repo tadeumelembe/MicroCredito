@@ -44,15 +44,18 @@ Route::get('/dashboard', function () {
 
 Route::group(['middleware' => ['auth']], function() {
 
-
     Route::get('customers', [CustomerController::class, 'index'])->name('customers');
-    Route::get('emprestimos', [EmprestimoController::class, 'index'])->name('emprestimos');
-    Route::get('roles', [RoleController::class, 'index'])->name('roles');
+    Route::post('customers', [CustomerController::class, 'store'])->name('customers.store');
+    Route::post('customers', [CustomerController::class, 'getCustomer'])->name('getCustomerSelect2');
 
+    Route::get('emprestimos', [EmprestimoController::class, 'index'])->name('emprestimos');
+    Route::post('emprestimos', [EmprestimoController::class, 'store'])->name('emprestimos.store');
+    Route::get('roles', [RoleController::class, 'index'])->name('roles');
 
     Route::resource('users', UserController::class);
 
     Route::get('/home', function () {
+
         return view('home.home');
     });
 });

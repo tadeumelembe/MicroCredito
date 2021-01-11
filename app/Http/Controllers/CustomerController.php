@@ -90,16 +90,54 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+
+        $messages = [
+            'same' => 'O :attribute e :other devem ser iguais.',
+            'size' => 'O :attribute deve ser exactamente :size.',
+            'between' => 'O :attribute valor de :input não esta entre :min - :max.',
+            'in' => 'O :attribute deve ser um dos seguintes tipos: :values',
+            'required' => 'O campo :attribute é obrigatório.',
+            'not_in' => 'Selecione :attribute ',
+        ];
+
         $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+            'name' => 'required',
+            'surname' => 'required',
+            'phoneNumber' => 'required',
+            'doctype' => 'required',
+            'docNumber' => 'required',
+            'nuit' => 'required',
+            'birthdate' => 'required',
+            'gender' => 'required',
+            'bairro' => 'required',
+            'rua' => 'required',
+            'casa' => 'required',
+            'email' => 'required',
+            'estado' => 'required',
+            'nationality'=>'required'
+        ],$messages);
+
+
+       Customer::create([
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'phoneNumber' => $request->phoneNumber,
+            'doctype' => $request->doctype,
+            'docNumber' => $request->docNumber,
+            'nuit' => $request->nuit,
+            'birthdate' => $request->birthdate,
+            'gender' => $request->gender,
+            'bairro' => $request->bairro,
+            'rua' => $request->rua,
+            'casa' => $request->casa,
+            'email' => $request->email,
+            'estado' => $request->estado,
+            'nationality' => $request->nationality,
         ]);
 
-        $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
 
-        return redirect()->route('roles')
-                        ->with('success','Role created successfully');
+        return redirect()->route('customers')
+                        ->with('success','Cliente cadastrado com sucesso!!');
     }
     /**
      * Display the specified resource.
@@ -157,6 +195,28 @@ class CustomerController extends Controller
         return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');
     }
+
+    public function getCustomer(Request $request){
+
+        $search = $request->search;
+
+        if($search == ''){
+           $customers = Customer::orderby('name','asc')->select('id','name')->limit(5)->get();
+        }else{
+           $customers = Customer::orderby('name','asc')->select('id','name')->where('name', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+
+        $response = array();
+        foreach($customers as $customer){
+           $response[] = array(
+                "id"=>$customer->id,
+                "text"=>$customer->name.' '.$customer->surname
+           );
+        }
+
+        echo json_encode($response);
+        exit;
+     }
     /**
      * Remove the specified resource from storage.
      *

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Dez-2020 às 16:17
+-- Tempo de geração: 11-Jan-2021 às 16:23
 -- Versão do servidor: 10.4.14-MariaDB
 -- versão do PHP: 7.4.11
 
@@ -47,23 +47,31 @@ CREATE TABLE `cards` (
 
 CREATE TABLE `customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phoneNumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `doctype` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `docNumber` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nuit` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phoneNumber` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `doctype` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `docNumber` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nuit` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthdate` date NOT NULL,
-  `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bairro` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `rua` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `casa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `estado` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bairro` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rua` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `casa` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nationality` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `estado` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `surname`, `phoneNumber`, `doctype`, `docNumber`, `nuit`, `birthdate`, `gender`, `bairro`, `rua`, `casa`, `email`, `nationality`, `estado`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Elton', 'Cuambe', '845545554', 'BI', '5554444444444B', '4545454845', '1997-09-11', 'M', 'Guava', 'Canhoeiro', '50', 'william@multitask.com', 'Moçambique', 'Solteiro', '2021-01-11 11:54:43', '2021-01-11 11:54:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -79,12 +87,19 @@ CREATE TABLE `emprestimos` (
   `valorDivida` double NOT NULL,
   `valorRemanescente` double NOT NULL,
   `data_limite` date NOT NULL,
-  `estado` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `custumer_id` bigint(20) UNSIGNED NOT NULL,
+  `estado` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Activo',
+  `customer_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `emprestimos`
+--
+
+INSERT INTO `emprestimos` (`id`, `data_emprestimo`, `valorConcedido`, `taxaJuro`, `valorDivida`, `valorRemanescente`, `data_limite`, `estado`, `customer_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '2021-01-11', 200, 5, 210, 0, '2021-01-11', 'Activo', 1, '2021-01-11 12:56:30', '2021-01-11 12:56:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -123,11 +138,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_12_15_151011_create_permission_tables', 2),
-(8, '2020_12_21_133819_create_customers_table', 3),
 (9, '2020_12_21_135109_create_cards_table', 3),
 (10, '2020_12_21_140709_create_parentes_table', 3),
-(11, '2020_12_21_141318_create_emprestimos_table', 3),
-(12, '2020_12_21_143609_create_prestacoes_table', 3);
+(12, '2020_12_21_143609_create_prestacoes_table', 3),
+(13, '2020_12_21_133819_create_customers_table', 4),
+(15, '2020_12_21_141318_create_emprestimos_table', 5);
 
 -- --------------------------------------------------------
 
@@ -307,7 +322,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(4, 'Admin', 'admin@admin.com', NULL, '$2y$10$EtgcH1TPmDSCYAKiGXGHhOdgz7UES4clhtciRtvqZ5PSjzliaF5DW', NULL, '2020-12-15 13:21:33', '2020-12-15 13:21:33');
+(4, 'Admin', 'admin@admin.com', NULL, '$2y$10$EtgcH1TPmDSCYAKiGXGHhOdgz7UES4clhtciRtvqZ5PSjzliaF5DW', 'ifhvFUEBbROMoyVoTPXF7YKgAOuYdJTpALIP6nDkm83TXAiSZ50Rc5dS8a6U', '2020-12-15 13:21:33', '2020-12-15 13:21:33');
 
 --
 -- Índices para tabelas despejadas
@@ -331,7 +346,7 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `emprestimos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `emprestimos_custumer_id_foreign` (`custumer_id`);
+  ADD KEY `emprestimos_customer_id_foreign` (`customer_id`);
 
 --
 -- Índices para tabela `failed_jobs`
@@ -420,13 +435,13 @@ ALTER TABLE `cards`
 -- AUTO_INCREMENT de tabela `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `emprestimos`
 --
 ALTER TABLE `emprestimos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `failed_jobs`
@@ -438,7 +453,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de tabela `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `parentes`
@@ -484,7 +499,7 @@ ALTER TABLE `cards`
 -- Limitadores para a tabela `emprestimos`
 --
 ALTER TABLE `emprestimos`
-  ADD CONSTRAINT `emprestimos_custumer_id_foreign` FOREIGN KEY (`custumer_id`) REFERENCES `customers` (`id`);
+  ADD CONSTRAINT `emprestimos_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`);
 
 --
 -- Limitadores para a tabela `model_has_permissions`

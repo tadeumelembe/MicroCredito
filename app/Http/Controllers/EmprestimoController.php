@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Emprestimo;
 use DB;
 use DataTables;
+use Carbon\Carbon;
 
 class EmprestimoController extends Controller
 {
@@ -87,16 +88,36 @@ class EmprestimoController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'same' => 'O :attribute e :other devem ser iguais.',
+            'size' => 'O :attribute deve ser exactamente :size.',
+            'between' => 'O :attribute valor de :input não esta entre :min - :max.',
+            'in' => 'O :attribute deve ser um dos seguintes tipos: :values',
+            'required' => 'O campo :attribute é obrigatório.',
+            'not_in' => 'Selecione :attribute ',
+        ];
+
+
         $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
+            'valorConcedido' => 'required',
+            'taxaJuro' => 'required',
+            'customer_id' => 'required',
+        ],$messages);
+
+
+       Emprestimo::create([
+            'data_emprestimo' => Carbon::now(),
+            'valorConcedido' => $request->valorConcedido,
+            'taxaJuro' => $request->taxaJuro,
+            'valorDivida' => $request->valorDivida,
+            'valorRemanescente' => 0,
+            'data_limite' => Carbon::now(),
+            'customer_id' => $request->customer_id
         ]);
 
-        $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
 
-        return redirect()->route('roles')
-                        ->with('success','Role created successfully');
+        return redirect()->route('emprestimos')
+                        ->with('success','Emprestimos registado com sucesso!!');
     }
     /**
      * Display the specified resource.

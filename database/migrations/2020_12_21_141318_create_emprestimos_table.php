@@ -21,11 +21,11 @@ class CreateEmprestimosTable extends Migration
             $table->double('valorDivida');
             $table->double('valorRemanescente');
             $table->date('data_limite');
-            $table->string('estado');
-            $table->unsignedBigInteger('custumer_id');
+            $table->string('estado')->default('Activo');
+            $table->unsignedBigInteger('customer_id');
             $table->timestamps();
             $table->softDeletes();
-           $table->foreign('custumer_id')->references('id')->on('customers');
+           $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 

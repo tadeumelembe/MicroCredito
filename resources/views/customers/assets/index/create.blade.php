@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body px-4">
-                <form id="create-form" class="needs-validation" novalidate method="post">
+                <form id="create-form" class="needs-validation" novalidate method="post" action="{{route('customers.store')}}">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -83,10 +83,24 @@
                         </div>
                     </div>
                     <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="estado">Doc type</label>
+                                <select class="form-control" id="estado" name="doctype" required>
+                                    <option>Selecione</option>
+                                    <option value="BI">BI</option>
+
+                                </select>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="bi">BI</label>
-                                <input type="text" class="form-control input-mask" data-inputmask="'mask': '9999999999999a'" id="doc-number" name="doc-number" placeholder="Número do BI" required>
+                                <input type="text" class="form-control input-mask" data-inputmask="'mask': '9999999999999a'" id="doc-number" name="docNumber" placeholder="Número do BI" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -106,7 +120,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone-number">Telefone</label>
-                                <input type="text" class="form-control input-mask" data-inputmask="'mask': '999999999'" id="phone-number" name="phone-number" placeholder="Número de Telefone" required>
+                                <input type="text" class="form-control input-mask" data-inputmask="'mask': '999999999'" id="phone-number" name="phoneNumber" placeholder="Número de Telefone" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -155,7 +169,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="create-submit" class="btn btn-secondary float-right">Submeter</button>
+                <button id="create-submit" type="submit" class="btn btn-secondary float-right">Submeter</button>
                 <button data-dismiss="modal" class="btn btn-danger">Cancelar</button>
             </div>
         </div>

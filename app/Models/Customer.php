@@ -28,7 +28,8 @@ class Customer extends Model
         'rua',
         'casa',
         'email',
-        'estado'
+        'estado',
+        'nationality'
     ];
 
     public function card(){
