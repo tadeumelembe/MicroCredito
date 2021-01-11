@@ -56,7 +56,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="telefone">Valor Total</label><br>
-                                <h5 class="text-success" id="valor-total" for="telefone">MT 0</h5>
+                                <h5 class="text-success" id="e-valor-total" for="telefone">MT 0</h5>
                             </div>
                         </div>
                     </div>

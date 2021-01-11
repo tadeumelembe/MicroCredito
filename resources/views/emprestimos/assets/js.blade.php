@@ -50,7 +50,7 @@
         var total = valor + (valor * juro / 100);
         total = total.toFixed(2);
         total = total.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-
+        
         $("#valor-total").html("MT " + total);
     });
 
