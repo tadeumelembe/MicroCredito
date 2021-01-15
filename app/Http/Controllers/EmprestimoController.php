@@ -110,7 +110,7 @@ class EmprestimoController extends Controller
             'valorConcedido' => $request->valorConcedido,
             'taxaJuro' => $request->taxaJuro,
             'valorDivida' => $request->valorDivida,
-            'valorRemanescente' => 0,
+            'valorRemanescente' => $request->valorDivida,
             'data_limite' => Carbon::now(),
             'customer_id' => $request->customer_id
         ]);
