@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body px-4">
-                <form id="create-form" class="needs-validation" novalidate method="post" action="{{route('customers.store')}}">
+                <form id="create-form" class="needs-validation" novalidate method="post" action="{{url('createCustomers')}}">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">

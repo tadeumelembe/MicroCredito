@@ -45,7 +45,9 @@ Route::get('/dashboard', function () {
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('customers', [CustomerController::class, 'index'])->name('customers');
-    Route::post('customers', [CustomerController::class, 'store'])->name('customers.store');
+
+    Route::post('createCustomers', [CustomerController::class, 'store'])->name('customers.store');
+
     Route::post('customers', [CustomerController::class, 'getCustomer'])->name('getCustomerSelect2');
 
     Route::get('emprestimos', [EmprestimoController::class, 'index'])->name('emprestimos');
