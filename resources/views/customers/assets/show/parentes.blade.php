@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <table id="datatable" class="table table-bordered dt-responsive nowrap loan-table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+        <table id="datatable-par" class="table table-bordered dt-responsive nowrap loan-table" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
             <thead>
                 <tr>
                     <th>#</th>

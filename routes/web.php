@@ -5,6 +5,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmprestimoController;
+use App\Http\Controllers\ParenteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,6 +46,7 @@ Route::get('/dashboard', function () {
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('customers', [CustomerController::class, 'index'])->name('customers');
+    Route::get('customers/{id}', [CustomerController::class, 'show'])->name('customers.show');
 
     Route::post('createCustomers', [CustomerController::class, 'store'])->name('customers.store');
 
@@ -52,6 +54,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('emprestimos', [EmprestimoController::class, 'index'])->name('emprestimos');
     Route::post('emprestimos', [EmprestimoController::class, 'store'])->name('emprestimos.store');
+    
+    Route::post('parentes/create', [ParenteController::class, 'store'])->name('parentes.store');
+
     Route::get('roles', [RoleController::class, 'index'])->name('roles');
 
     Route::resource('users', UserController::class);

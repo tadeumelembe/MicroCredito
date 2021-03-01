@@ -35,12 +35,25 @@
 
 
 <script>
-    /* $('#datatable').DataTable({
-            "pageLength": 5,
-            "lengthChange": false,
-            "lengthMenu": [
-                [5, 10, 20, -1],
-                [5, 10, 20, 'Todos']
-            ]
-        })*/
+    $('#datatable-em').DataTable({
+        "pageLength": 5,
+        "lengthChange": true,
+        "lengthMenu": [
+            [5, 10, 20, -1],
+            [5, 10, 20, 'Todos']
+        ]
+    });
+    $('#datatable-par').DataTable({
+        "pageLength": 5,
+        "lengthChange": true,
+        "lengthMenu": [
+            [5, 10, 20, -1],
+            [5, 10, 20, 'Todos']
+        ]
+    });
+</script>
+<script>
+    $('#create-parente').click(function() {
+        $('#create-parente-form').submit()
+    })
 </script>
