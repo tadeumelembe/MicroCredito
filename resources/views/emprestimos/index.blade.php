@@ -62,7 +62,7 @@
                         <table id="emprestimoDatatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Cliente</th>
                                     <th>Data Emprestimo</th>
                                     <th>Valor concedido</th>
                                     <th>Juro(%)</th>

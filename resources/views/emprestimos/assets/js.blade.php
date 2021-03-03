@@ -99,8 +99,10 @@
                 }
             },
             columns: [{
-                    data: 'id',
-                    name: 'id'
+                    data: function(row, type, set) {
+                        return row.customer.name + ' ' + row.customer.surname
+                    },
+                    name: 'custumer.name'
                 },
 
                 {
@@ -143,37 +145,46 @@
 
 
 <script type="text/javascript">
-
     // CSRF Token
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-    $(document).ready(function(){
+    $(document).ready(function() {
 
-      $( "#Customer" ).select2({
-        ajax: {
-          url: "{{route('getCustomerSelect2')}}",
-          type: "post",
-          dataType: 'json',
-          delay: 250,
-          data: function (params) {
-            return {
-                "_token": "{{ csrf_token() }}",
-              search: params.term // search term
-            };
-          },
-          processResults: function (response) {
-            return {
-              results: response
-            };
-          },
-          formatNoMatches: function () { return "Pesquisa não encontrada"; },
-           formatInputTooShort: function (input, min) { return "Digite " + (min - input.length) + " caracteres para pesquisar"; },
-           formatSelectionTooBig: function (limit) { return "Seleciona apenas uma opção " + limit + " item" + (limit == 1 ? "" : "s"); },
-          formatLoadMore: function (pageNumber) { return "Carregando mais dados..."; },
-           formatSearching: function () { return "Pesquisando..."; },
-          cache: true
-        }
+        $("#Customer").select2({
+            ajax: {
+                url: "{{route('getCustomerSelect2')}}",
+                type: "post",
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        "_token": "{{ csrf_token() }}",
+                        search: params.term // search term
+                    };
+                },
+                processResults: function(response) {
+                    return {
+                        results: response
+                    };
+                },
+                formatNoMatches: function() {
+                    return "Pesquisa não encontrada";
+                },
+                formatInputTooShort: function(input, min) {
+                    return "Digite " + (min - input.length) + " caracteres para pesquisar";
+                },
+                formatSelectionTooBig: function(limit) {
+                    return "Seleciona apenas uma opção " + limit + " item" + (limit == 1 ? "" : "s");
+                },
+                formatLoadMore: function(pageNumber) {
+                    return "Carregando mais dados...";
+                },
+                formatSearching: function() {
+                    return "Pesquisando...";
+                },
+                cache: true
+            }
 
-      });
+        });
 
     });
-    </script>
+</script>

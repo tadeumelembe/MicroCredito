@@ -53,6 +53,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('customers', [CustomerController::class, 'getCustomer'])->name('getCustomerSelect2');
 
     Route::get('emprestimos', [EmprestimoController::class, 'index'])->name('emprestimos');
+    Route::get('emprestimos/{id}', [EmprestimoController::class, 'show'])->name('emprestimos.show');
     Route::post('emprestimos', [EmprestimoController::class, 'store'])->name('emprestimos.store');
     
     Route::post('parentes/create', [ParenteController::class, 'store'])->name('parentes.store');

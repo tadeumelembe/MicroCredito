@@ -35,7 +35,8 @@ class EmprestimoController extends Controller
     {
 
         if ($request->ajax()) {
-            $data = Emprestimo::select('*');
+            $data = Emprestimo::with('customer')->get();
+              
             return DataTables::of($data)
                     ->addIndexColumn()
                     ->addColumn('acção', function(Emprestimo $emprestimo){
@@ -46,7 +47,6 @@ class EmprestimoController extends Controller
                     ->rawColumns(['acção'])
                     ->make(true);
         }
-
         return view('emprestimos.index');
     }
 
@@ -59,7 +59,7 @@ class EmprestimoController extends Controller
         </a>
 
         <div class='dropdown-menu' style=''>
-            <a class='dropdown-item' href=''>Ver</a>
+            <a class='dropdown-item' href='emprestimos/{$data->id}'>Ver</a>
             <a class='dropdown-item' href='' data-toggle='modal' data-target='.pay-modal'>Pagamento</a>
             <a class='dropdown-item' href='' data-toggle='modal' data-target='.edit-modal'>Editar</a>
             <a class='dropdown-item' href=''>Apagar</a>
@@ -132,7 +132,7 @@ class EmprestimoController extends Controller
             ->where("role_has_permissions.role_id",$id)
             ->get();
 
-        return view('roles.show',compact('role','rolePermissions'));
+        return view('emprestimos.show',compact('role','rolePermissions'));
     }
 
     /**
