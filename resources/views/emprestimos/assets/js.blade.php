@@ -102,7 +102,7 @@
                     data: function(row, type, set) {
                         return row.customer.name + ' ' + row.customer.surname
                     },
-                    name: 'custumer.name'
+                    name: 'name'
                 },
 
                 {

@@ -73,9 +73,9 @@
 
                             </div>
                             <div class="col text-center" style="height: 100%;width:100%">
-                                <small class="text-muted" style="font-size: 13px;">Parentes</small>
+                                <small class="text-muted" style="font-size: 13px;">Ultimo Emprestimo</small>
                                 <div style="position:absolute;right:0;left:0;top:40%;">
-                                    <h3>2</h3>
+                                    <h3>MT 2</h3>
                                 </div>
                             </div>
                         </div>
